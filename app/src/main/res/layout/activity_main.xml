@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:backgroundTint="@color/statusbar_color"
+    android:layout_centerInParent="true">
+
+    <include
+        android:id="@+id/top_layout"
+        layout="@layout/top_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@id/top_layout">
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/musicnavi_layout"
+        android:layout_above="@id/bottom_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/rounded_at_top"
+        android:backgroundTint="@color/primary_main"
+        android:paddingBottom="10dp"
+        android:paddingTop="25dp"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp">
+
+        <FrameLayout
+            android:id="@+id/expand_collapse_img"
+            android:layout_width="60dp"
+            android:layout_height="15dp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:clickable="false"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:layout_width="65dp"
+                android:layout_height="15dp"
+                android:layout_gravity="center"
+                android:backgroundTint="@android:color/white"
+                android:alpha=".4"
+                android:clickable="false"
+                android:scaleX=".65"/>
+
+        </FrameLayout>
+
+        <include
+            android:id="@+id/musicnavi_navicollapsed"
+            layout="@layout/music_navigation_collapsed"/>
+
+        <include
+            android:id="@+id/musicnavi_navinormal"
+            layout="@layout/music_navigation"
+            android:visibility="gone"/>
+
+    </LinearLayout>
+
+    <include
+        android:id="@+id/bottom_layout"
+        layout="@layout/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true" />
+
+    <View
+        android:id="@+id/darken_layer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:focusable="true"
+        android:visibility="gone"
+        android:background="@color/semitrans_dark"/>
+
+    <include
+        android:id="@+id/popup_layout"
+        layout="@layout/pop_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:visibility="gone"/>
+
+</RelativeLayout>

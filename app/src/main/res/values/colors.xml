@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary_bright">#FF9F00</color>
+    <color name="primary_main">#FF5900</color>
+    <color name="primary_dark">#D33005</color>
+    <color name="primary_darker">#C82F07</color>
+    <color name="secondary_bright">#87CEFA</color>
+    <color name="semitrans_secondary_bright_darkened">#4D3D657E</color>
+    <color name="secondary_main">#599CC6</color>
+    <color name="statusbar_color">#CCC</color>
+    <color name="semitrans_dark">#4D454545</color>
+    <color name="grayed_primary_main">#C15217</color>
+    <!--THEME IGNORANT COLORS BELLOW-->
+    <color name="launcher_background">#FF5900</color>
+    <color name="fade_background">#74000000</color>
+    <color name="semitrans_white">#80FFFFFF</color>
+</resources>

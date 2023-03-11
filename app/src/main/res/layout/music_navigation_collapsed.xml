@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@null"
+    android:clickable="true"
+    android:focusable="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:padding="4dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="6dp"
+            android:layout_marginEnd="6dp"
+            android:layout_marginBottom="6dp"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/playpause_btn"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_gravity="center|start"
+                android:adjustViewBounds="false"
+                android:background="@null"
+                android:contentDescription="@string/play"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_play"
+                android:layout_marginEnd="5dp"/>
+
+            <TextView
+                android:id="@+id/nowplaying"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="start"
+                android:fontFamily="@font/notosans_bold"
+                android:text="Currently Playing Song Name"
+                android:textSize="16sp"
+                android:textColor="@android:color/white"
+                android:layout_weight="1"
+                android:translationY="-1.25dp"
+                android:clickable="false"
+                android:focusable="false"/>
+
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/progressbar"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="5dp"
+            android:max="100"
+            android:progress="10"
+            android:progressTint="@android:color/white"
+            android:progressBackgroundTint="@android:color/white"
+            android:clickable="false"
+            android:focusable="false"/>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

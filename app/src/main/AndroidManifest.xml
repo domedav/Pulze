@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <application
+        android:allowAudioPlaybackCapture="true"
+        android:allowBackup="true"
+        android:appCategory="audio"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:extractNativeLibs="true"
+        android:fullBackupContent="@xml/backup_rules"
+        android:hardwareAccelerated="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:logo="@mipmap/ic_launcher_round"
+        android:manageSpaceActivity=".StorageManagmentActivity"
+        android:nativeHeapZeroInitialized="true"
+        android:resizeableActivity="true"
+        android:restoreAnyVersion="true"
+        android:rollbackDataPolicy="retain"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.App.Starting"
+        android:useEmbeddedDex="false"
+        android:usesCleartextTraffic="false"
+        android:banner="@mipmap/ic_launcher"
+        android:memtagMode="async"
+        android:backupInForeground="true"
+        android:defaultToDeviceProtectedStorage="true"
+        android:allowTaskReparenting="true"
+        android:crossProfile="true"
+        android:forceQueryable="false"
+        android:enableOnBackInvokedCallback="true"
+        android:hasFragileUserData="true"
+        android:gwpAsanMode="never"
+        tools:targetApi="33">
+        <activity
+            android:name=".StorageManagmentActivity"
+            android:exported="true"
+            android:screenOrientation="sensorPortrait"
+            tools:ignore="LockedOrientationActivity"
+            android:theme="@style/Theme.App.Starting" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:screenOrientation="sensorPortrait"
+            tools:ignore="LockedOrientationActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@null">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/nowplaying_music_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start|top"
+            android:gravity="center"
+            android:fontFamily="@font/notosans_bold"
+            android:text="Currently Playing Song Name"
+            android:textSize="16sp"
+            android:textColor="@android:color/white"
+            android:clickable="false"
+            android:focusable="false"/>
+
+        <TextView
+            android:id="@+id/nowplaying_music_artist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start|top"
+            android:gravity="center"
+            android:fontFamily="@font/notosans_regular"
+            android:text="Artist Name"
+            android:textSize="12sp"
+            android:textColor="@android:color/white"
+            android:clickable="false"
+            android:focusable="false"/>
+
+        <LinearLayout
+            android:layout_width="200dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="6dp"
+            android:layout_marginEnd="6dp"
+            android:layout_marginBottom="24dp"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/previous_btn"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:adjustViewBounds="false"
+                android:background="@null"
+                android:contentDescription="@string/previous"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_previous" />
+
+            <ImageButton
+                android:id="@+id/playpause_btn"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:adjustViewBounds="false"
+                android:background="@null"
+                android:contentDescription="@string/play"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_play" />
+
+            <ImageButton
+                android:id="@+id/skip_btn"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:adjustViewBounds="false"
+                android:background="@null"
+                android:contentDescription="@string/skip"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_skip" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:clickable="false"
+            android:focusable="false">
+
+            <ProgressBar
+                android:id="@+id/progressbar"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="4dp"
+                android:layout_gravity="center"
+                android:foregroundGravity="center"
+                android:layout_marginEnd="5dp"
+                android:layout_weight="20"
+                android:max="100"
+                android:progress="10"
+                android:progressTint="@android:color/white"
+                android:progressBackgroundTint="@android:color/white"
+                android:translationY="1.25dp"/>
+
+            <TextView
+                android:id="@+id/progresstext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginStart="5dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/notosans_regular"
+                android:text="00:00"
+                android:textColor="@android:color/white"
+                android:textSize="9sp" />
+        </LinearLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

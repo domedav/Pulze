@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@null">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_at_bottom"
+        android:backgroundTint="@color/primary_main"
+        android:orientation="horizontal"
+        android:paddingStart="6dp"
+        android:paddingTop="4dp"
+        android:paddingEnd="6dp"
+        android:paddingBottom="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/toptitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginStart="15dp"
+            android:layout_weight="6"
+            android:fontFamily="@font/notosans_bold"
+            android:gravity="start"
+            android:text="@string/library"
+            android:textColor="@android:color/white"
+            android:textSize="18sp" />
+
+        <ImageButton
+            android:id="@+id/settings_button"
+            android:layout_width="0dp"
+            android:layout_height="28dp"
+            android:layout_gravity="center"
+            android:layout_marginEnd="15dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="false"
+            android:background="@null"
+            android:contentDescription="@string/settings"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_settings" />
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

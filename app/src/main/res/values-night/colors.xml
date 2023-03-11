@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary_bright">#494949</color>
+    <color name="primary_main">#3B3B3B</color>
+    <color name="primary_dark">#242424</color>
+    <color name="primary_darker">#212121</color>
+    <color name="statusbar_color">#222</color>
+    <color name="semitrans_dark">#4D979797</color>
+    <color name="grayed_primary_main">#5A5A5A</color>
+</resources>
