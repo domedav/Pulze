@@ -7,7 +7,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -17,7 +16,6 @@ import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CompoundButton;
-import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.FloatRange;
@@ -27,7 +25,6 @@ import androidx.appcompat.widget.AppCompatSpinner;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.math.MathUtils;
-
 import com.domedav.animhelpers.QuickViewAnimator;
 import com.domedav.animhelpers.QuickValueAnimator;
 import com.domedav.listenanywhere.R;
@@ -52,7 +49,6 @@ public class PopupViewManager {
     private static int m_semitransDark_Color;
     private static final float INACTIVE_ALPHA = .3f;
     private static int m_workingID;
-    private static float m_targetHeight;
 
     @SuppressLint("ClickableViewAccessibility")
     public static void InitialisePopup(@NotNull Activity a, @NotNull ActivityMainBinding binding){
@@ -81,10 +77,6 @@ public class PopupViewManager {
         m_semitransDark_Color = m_context.getColor(R.color.semitrans_dark);
         m_grayed_PrimaryMain_Color = m_context.getColor(R.color.grayed_primary_main);
 
-        m_popupAnimable.post(() -> {
-            m_targetHeight = m_popupAnimable.getHeight();   // Delayed assign
-        });
-
         m_popupAnimable.setOnTouchListener((v, event) -> {
             if(m_isClosing){return false;}  //You cant controll the panel, when its being closed
 
@@ -96,7 +88,7 @@ public class PopupViewManager {
                 case MotionEvent.ACTION_MOVE:
                     PopupMoving(m_popupOffset + event.getY());
 
-                    if(m_popupTranslation > m_targetHeight / 2f){  // If the view moved by 1/2th, auto close it, aesthetic design choice
+                    if(m_popupTranslation > m_popupAnimable.getHeight() / 2f){  // If the view moved by 1/2th, auto close it, aesthetic design choice
                         // Exit via navbarback
                         NavbarBackHelper.NavigateBack();
                     }
@@ -104,7 +96,7 @@ public class PopupViewManager {
                     break;
 
                 case MotionEvent.ACTION_UP:
-                    if(m_popupTranslation > m_targetHeight / 6f){  // If the view moved by 1/6th, close it
+                    if(m_popupTranslation > m_popupAnimable.getHeight() / 6f){  // If the view moved by 1/6th, close it
                         // Exit via navbarback
                         NavbarBackHelper.NavigateBack();
                     }
@@ -151,7 +143,7 @@ public class PopupViewManager {
         m_expandCollapseImg.setScaleX(1f);
 
         // We have to wait 1 frame, so the layout height and stuff can be calculated
-        m_popupAnimable.post(() -> QuickViewAnimator.AnimateTranslationY(m_popupAnimable, m_targetHeight, 0f, QuickValueAnimator.ANIMATION_LONG_MS, new AnimatorListenerAdapter() {
+        m_popupAnimable.post(() -> QuickViewAnimator.AnimateTranslationY(m_popupAnimable, m_popupAnimable.getHeight(), 0f, QuickValueAnimator.ANIMATION_LONG_MS, new AnimatorListenerAdapter() {
             @Override
             public void onAnimationEnd(Animator animation) {
                 super.onAnimationEnd(animation);
@@ -325,7 +317,7 @@ public class PopupViewManager {
         m_popupShowing = false;
 
         //Animate it from current translation pos, to an out of bounds one
-        QuickViewAnimator.AnimateTranslationY(m_popupAnimable, m_popupAnimable.getTranslationY(), m_targetHeight, QuickValueAnimator.ANIMATION_LONG_MS, new AnimatorListenerAdapter(){
+        QuickViewAnimator.AnimateTranslationY(m_popupAnimable, m_popupAnimable.getTranslationY(), m_popupAnimable.getHeight(), QuickValueAnimator.ANIMATION_LONG_MS, new AnimatorListenerAdapter(){
             @Override
             public void onAnimationEnd(Animator animation){
                 super.onAnimationEnd(animation);
@@ -372,7 +364,7 @@ public class PopupViewManager {
      */
     private static void PopupMoving(float moveby){
         m_popupTranslation += moveby;
-        m_expandCollapseImg.setScaleX(MathUtils.clamp(1f - (m_popupTranslation / m_targetHeight), .65f, 1.25f));
+        m_expandCollapseImg.setScaleX(MathUtils.clamp(1f - (m_popupTranslation / m_popupAnimable.getHeight()), .65f, 1.25f));
         // Clamp values
         if(m_popupTranslation < 0f){
             m_popupTranslation = 0f;

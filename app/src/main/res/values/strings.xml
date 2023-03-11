@@ -12,4 +12,7 @@
     <string name="settings_streaming_header">Streaming Settings</string>
     <string name="settings_override_kbps">Override Music Quality</string>
     <string name="settings_kbps_target">Target Music Quality</string>
+
+    <string name="music_timeremaining_placeholder">%1$s | %2$s</string>
+    <string name="music_artist_placeholder">By: %1$s</string>
 </resources>

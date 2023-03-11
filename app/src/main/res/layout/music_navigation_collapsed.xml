@@ -3,9 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@null"
-    android:clickable="true"
-    android:focusable="true">
+    android:background="@null">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -26,7 +24,7 @@
             android:orientation="horizontal">
 
             <ImageButton
-                android:id="@+id/playpause_btn"
+                android:id="@+id/playpause_btn_c"
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 android:layout_gravity="center|start"
@@ -38,7 +36,7 @@
                 android:layout_marginEnd="5dp"/>
 
             <TextView
-                android:id="@+id/nowplaying"
+                android:id="@+id/nowplaying_music_name_c"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -50,12 +48,14 @@
                 android:layout_weight="1"
                 android:translationY="-1.25dp"
                 android:clickable="false"
-                android:focusable="false"/>
+                android:focusable="false"
+                android:maxLines="1"
+                android:ellipsize="end"/>
 
         </LinearLayout>
 
         <ProgressBar
-            android:id="@+id/progressbar"
+            android:id="@+id/progressbar_c"
             style="@style/Widget.AppCompat.ProgressBar.Horizontal"
             android:layout_width="match_parent"
             android:layout_height="2dp"

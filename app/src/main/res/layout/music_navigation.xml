@@ -25,7 +25,9 @@
             android:textSize="16sp"
             android:textColor="@android:color/white"
             android:clickable="false"
-            android:focusable="false"/>
+            android:focusable="false"
+            android:maxLines="1"
+            android:ellipsize="end"/>
 
         <TextView
             android:id="@+id/nowplaying_music_artist"
@@ -38,7 +40,9 @@
             android:textSize="12sp"
             android:textColor="@android:color/white"
             android:clickable="false"
-            android:focusable="false"/>
+            android:focusable="false"
+            android:maxLines="1"
+            android:ellipsize="end"/>
 
         <LinearLayout
             android:layout_width="200dp"
@@ -109,7 +113,7 @@
                 android:translationY="1.25dp"/>
 
             <TextView
-                android:id="@+id/progresstext"
+                android:id="@+id/progress_timeleft"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -117,7 +121,7 @@
                 android:layout_marginStart="5dp"
                 android:layout_weight="1"
                 android:fontFamily="@font/notosans_regular"
-                android:text="00:00"
+                android:text="00:00 | 99:99"
                 android:textColor="@android:color/white"
                 android:textSize="9sp" />
         </LinearLayout>

@@ -24,7 +24,7 @@
 
     </LinearLayout>
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/musicnavi_layout"
         android:layout_above="@id/bottom_layout"
         android:layout_width="match_parent"
@@ -39,12 +39,14 @@
 
         <FrameLayout
             android:id="@+id/expand_collapse_img"
-            android:layout_width="60dp"
-            android:layout_height="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:gravity="center"
             android:layout_gravity="center"
             android:clickable="false"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true">
 
             <ImageButton
                 android:layout_width="65dp"
@@ -53,20 +55,20 @@
                 android:backgroundTint="@android:color/white"
                 android:alpha=".4"
                 android:clickable="false"
-                android:scaleX=".65"/>
+                android:scaleX=".65"
+                android:translationY="-5dp"/>
 
         </FrameLayout>
 
         <include
             android:id="@+id/musicnavi_navicollapsed"
-            layout="@layout/music_navigation_collapsed"/>
+            layout="@layout/music_navigation_collapsed" />
 
         <include
             android:id="@+id/musicnavi_navinormal"
-            layout="@layout/music_navigation"
-            android:visibility="gone"/>
+            layout="@layout/music_navigation" />
 
-    </LinearLayout>
+    </RelativeLayout>
 
     <include
         android:id="@+id/bottom_layout"
@@ -86,7 +88,7 @@
 
     <include
         android:id="@+id/popup_layout"
-        layout="@layout/pop_view"
+        layout="@layout/popup_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

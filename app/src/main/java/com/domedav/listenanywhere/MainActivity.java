@@ -1,12 +1,9 @@
 package com.domedav.listenanywhere;
 
 import android.annotation.SuppressLint;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -90,12 +87,15 @@ public class MainActivity extends AppCompatActivity {
         m_binding.darkenLayer.setOnClickListener(v -> NavbarBackHelper.NavigateBack()); // Tapping anywhere should also close popup
 
         // music layout
-        HomeScreenMusicControlPanelManager.InitialiseMusicLayoutHelper(m_binding);
+        HomeScreenMusicControlPanelManager.InitialiseMusicLayoutHelper(this, m_binding);
 
         m_binding.musicnaviLayout.setOnTouchListener((v, event) -> {
             HomeScreenMusicControlPanelManager.LayoutMove(event);
             return true;
         });
+
+        HomeScreenMusicControlPanelManager.SetMusicAttributes("The best music in the world", "This is top-notch tech", 235);
+        HomeScreenMusicControlPanelManager.SetProgress(120);
     }
 
     @Override
