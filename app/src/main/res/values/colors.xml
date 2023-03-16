@@ -9,7 +9,9 @@
     <color name="secondary_main">#599CC6</color>
     <color name="statusbar_color">#CCC</color>
     <color name="semitrans_dark">#4D454545</color>
+    <color name="semitrans_dark_light">#12757575</color>
     <color name="grayed_primary_main">#C15217</color>
+    <color name="punchout">#4A4A4A</color>
     <!--THEME IGNORANT COLORS BELLOW-->
     <color name="launcher_background">#FF5900</color>
     <color name="fade_background">#74000000</color>

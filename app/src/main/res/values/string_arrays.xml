@@ -4,7 +4,7 @@
         <item>64kbps</item>
         <item>96kbps</item>
         <item>128kbps</item>
-        <item>192kbps (Default)</item>
+        <item>192kbps</item>
         <item>256kbps</item>
         <item>320kbps</item>
     </string-array>

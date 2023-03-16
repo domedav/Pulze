@@ -54,7 +54,7 @@
             android:layout_height="wrap_content"
             android:fadeScrollbars="true"
             android:scrollbarThumbHorizontal="@null"
-            android:scrollbarThumbVertical="@drawable/rounded_at_all">
+            android:scrollbarThumbVertical="@drawable/rounded_at_all_semitrans">
 
             <LinearLayout
                 android:id="@+id/popup_populate_me"

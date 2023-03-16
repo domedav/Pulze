@@ -6,5 +6,7 @@
     <color name="primary_darker">#212121</color>
     <color name="statusbar_color">#222</color>
     <color name="semitrans_dark">#4D979797</color>
+    <color name="semitrans_dark_light">#12757575</color>
     <color name="grayed_primary_main">#5A5A5A</color>
+    <color name="punchout">#FFF</color>
 </resources>

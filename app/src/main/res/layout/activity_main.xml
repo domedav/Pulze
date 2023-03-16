@@ -8,6 +8,47 @@
     android:backgroundTint="@color/statusbar_color"
     android:layout_centerInParent="true">
 
+    <ScrollView
+        android:id="@+id/homecontentholder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_above="@id/bottom_layout"
+        android:scrollbarThumbHorizontal="@null"
+        android:scrollbarThumbVertical="@null"
+        android:overScrollMode="always">
+
+        <LinearLayout
+            android:id="@+id/homefillable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="15dp"/>
+
+            <include layout="@layout/music_item" />
+            <include layout="@layout/music_item" />
+            <include layout="@layout/music_item" />
+            <include layout="@layout/music_item" />
+            <include layout="@layout/music_item" />
+            <include layout="@layout/music_item" />
+            <include layout="@layout/music_item" />
+            <include layout="@layout/music_item" />
+            <include layout="@layout/music_item" />
+            <include layout="@layout/music_item" />
+            <include layout="@layout/music_item" />
+            <include layout="@layout/music_item" />
+            <include layout="@layout/music_item" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="15dp"/>
+
+        </LinearLayout>
+    </ScrollView>
+
     <include
         android:id="@+id/top_layout"
         layout="@layout/top_navigation"
@@ -15,14 +56,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerInParent="true" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_below="@id/top_layout">
-
-    </LinearLayout>
 
     <RelativeLayout
         android:id="@+id/musicnavi_layout"
@@ -44,6 +77,7 @@
             android:gravity="center"
             android:layout_gravity="center"
             android:clickable="false"
+            android:focusable="false"
             android:orientation="horizontal"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true">
@@ -55,6 +89,7 @@
                 android:backgroundTint="@android:color/white"
                 android:alpha=".4"
                 android:clickable="false"
+                android:focusable="false"
                 android:scaleX=".65"
                 android:translationY="-5dp"/>
 

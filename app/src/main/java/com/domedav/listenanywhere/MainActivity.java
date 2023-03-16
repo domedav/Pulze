@@ -1,6 +1,5 @@
 package com.domedav.listenanywhere;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
@@ -8,6 +7,8 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.AdapterView;
+import android.widget.ScrollView;
+
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.splashscreen.SplashScreen;
 import com.domedav.listenanywhere.databinding.ActivityMainBinding;
@@ -16,10 +17,13 @@ import com.domedav.listenanywhere.popup.PopupViewManager;
 import com.domedav.listenanywhere.popup.PopupViewWorkingIDs;
 import com.domedav.navbarnavigation.NavbarBackHelper;
 
+import me.everything.android.ui.overscroll.OverScrollDecoratorHelper;
+import me.everything.android.ui.overscroll.VerticalOverScrollBounceEffectDecorator;
+import me.everything.android.ui.overscroll.adapters.ScrollViewOverScrollDecorAdapter;
+
 public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding m_binding;
 
-    @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         // Set basic activity params
@@ -87,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
         m_binding.darkenLayer.setOnClickListener(v -> NavbarBackHelper.NavigateBack()); // Tapping anywhere should also close popup
 
         // music layout
-        HomeScreenMusicControlPanelManager.InitialiseMusicLayoutHelper(this, m_binding);
+        HomeScreenMusicControlPanelManager.InitialiseMusicLayoutManager(this, m_binding);
 
         m_binding.musicnaviLayout.setOnTouchListener((v, event) -> {
             HomeScreenMusicControlPanelManager.LayoutMove(event);
@@ -96,6 +100,17 @@ public class MainActivity extends AppCompatActivity {
 
         HomeScreenMusicControlPanelManager.SetMusicAttributes("The best music in the world", "This is top-notch tech", 235);
         HomeScreenMusicControlPanelManager.SetProgress(120);
+
+        // Set up overscroll for music scroller
+        new VerticalOverScrollBounceEffectDecorator(new ScrollViewOverScrollDecorAdapter(findViewById(R.id.homecontentholder)), 25f, 25f, 1f);
+
+        m_binding.getRoot().post(() -> {
+            // Offset scrollable height, to make it look like, its scrolling into the top navilayout, and the bottom musicnave can slide on top
+            int top_height = m_binding.topLayout.getRoot().getHeight();
+            int bottom_height = m_binding.bottomLayout.getRoot().getHeight() + m_binding.musicnaviNavicollapsed.getRoot().getHeight();
+
+            m_binding.homefillable.setPaddingRelative(0, top_height  - 20, 0, bottom_height - 50);
+        });
     }
 
     @Override

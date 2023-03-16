@@ -50,11 +50,11 @@ public class PopupViewManager {
     private static final float INACTIVE_ALPHA = .3f;
     private static int m_workingID;
 
+    /**
+     * Initialise this class, prepare it for use
+     */
     @SuppressLint("ClickableViewAccessibility")
     public static void InitialisePopup(@NotNull Activity a, @NotNull ActivityMainBinding binding){
-        // Auto Cleanup
-        DestroyUnneeded();
-
         // Cache params
         m_binding = binding;
 

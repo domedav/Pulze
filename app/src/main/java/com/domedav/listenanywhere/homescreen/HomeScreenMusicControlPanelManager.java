@@ -38,7 +38,11 @@ public class HomeScreenMusicControlPanelManager {
     private static boolean m_playpauseState = true;
     private static Drawable m_iconPlay;
     private static Drawable m_iconPause;
-    public static void InitialiseMusicLayoutHelper(@NotNull Activity a, @NotNull ActivityMainBinding binding){
+
+    /**
+     * Initialise this class, prepare it for use
+     */
+    public static void InitialiseMusicLayoutManager(@NotNull Activity a, @NotNull ActivityMainBinding binding){
         m_binding = binding;
         m_context = a.getApplicationContext();
         m_musiclayout = m_binding.musicnaviLayout;
@@ -231,13 +235,13 @@ public class HomeScreenMusicControlPanelManager {
         m_musicProgressbar_small.setProgress(currentprogress);
         m_musicProgressbar_big.setProgress(currentprogress);
 
-        int c_currmins = currentprogress / 60;
+        int curr_mins = currentprogress / 60;
         currentprogress %= 60;
 
-        int t_currmins = m_musicLength / 60;
-        int t_currsecs = m_musicLength %= 60;
+        int targ_mins = m_musicLength / 60;
+        int targ_secs = m_musicLength %= 60;
 
-        m_musicTimeLeft.setText(m_context.getString(R.string.music_timeremaining_placeholder, String.format("%02d:%02d", c_currmins, currentprogress), String.format("%02d:%02d", t_currmins, t_currsecs)));
+        m_musicTimeLeft.setText(m_context.getString(R.string.music_timeremaining_placeholder, String.format("%02d:%02d", curr_mins, currentprogress), String.format("%02d:%02d", targ_mins, targ_secs)));
     }
 
     /**
