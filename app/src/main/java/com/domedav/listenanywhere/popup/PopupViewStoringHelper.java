@@ -7,11 +7,15 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class PopupViewStoringHelper implements Closeable {
+public class PopupViewStoringHelper {
     private static final ArrayList<PopupViewStoringHelper> m_popupHelpers = new ArrayList<>();
     private final int m_uniqueIdentifier;
     private final ArrayList<View> m_popupViews = new ArrayList<>();   // Stores the assigned views
     private static _KeyValuePairs<Integer, PopupViewStoringHelper> m_RecentValueCaching;
+
+    /**
+     * Returns the m_popupViews field
+     */
     public ArrayList<View> get_PopupViews() { return m_popupViews; }
 
     /**
@@ -99,18 +103,18 @@ public class PopupViewStoringHelper implements Closeable {
         // Remove ourselves from the static list
         m_popupHelpers.remove(this);
         // Destroy class
-        try { close(); } catch (IOException ignored){}
+        DestroyMe();
     }
 
     /**
      * Checks if there is a pool with the given workingID
      */
     public static boolean PoolExists(int workingID){ return PopupViewStoringHelper.GetPoolByID(workingID) != null; }
+
     /**
-     * Closeable interface impl
+     * Destroys this class
      */
-    @Override
-    public void close() throws IOException {
+    public void DestroyMe() {
         m_popupViews.clear();
     }
 

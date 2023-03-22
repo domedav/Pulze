@@ -26,7 +26,7 @@ public class QuickViewAnimator {
      */
     public static void AnimateTranslationX(ViewGroup layout, float startingPos, float targetPos, long duration_ms, @Nullable AnimatorListenerAdapter callback){
         // Set the starting pos of the view
-        layout.setTranslationY(startingPos);
+        layout.setTranslationX(startingPos);
         // Create the ObjectAnimator that animates the translationY property
         ObjectAnimator anim = ObjectAnimator.ofFloat(layout, "translationX", targetPos);
         // Set the animation duration

@@ -16,31 +16,21 @@
         android:layout_above="@id/bottom_layout"
         android:scrollbarThumbHorizontal="@null"
         android:scrollbarThumbVertical="@null"
-        android:overScrollMode="always">
+        android:overScrollMode="never">
 
         <LinearLayout
             android:id="@+id/homefillable"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:overScrollMode="never"
+            android:clipChildren="true"
+            android:gravity="center"
+            android:baselineAligned="true">
 
             <Space
                 android:layout_width="wrap_content"
                 android:layout_height="15dp"/>
-
-            <include layout="@layout/music_item" />
-            <include layout="@layout/music_item" />
-            <include layout="@layout/music_item" />
-            <include layout="@layout/music_item" />
-            <include layout="@layout/music_item" />
-            <include layout="@layout/music_item" />
-            <include layout="@layout/music_item" />
-            <include layout="@layout/music_item" />
-            <include layout="@layout/music_item" />
-            <include layout="@layout/music_item" />
-            <include layout="@layout/music_item" />
-            <include layout="@layout/music_item" />
-            <include layout="@layout/music_item" />
 
             <Space
                 android:layout_width="wrap_content"
@@ -48,6 +38,33 @@
 
         </LinearLayout>
     </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/homefillable_placeboo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:clickable="false"
+        android:focusable="false"
+        android:visibility="gone">
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="15dp"/>
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="15dp"/>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/unused_uielement_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:clickable="false"
+        android:focusable="false"/>
 
     <include
         android:id="@+id/top_layout"

@@ -121,7 +121,7 @@
                 android:layout_marginStart="5dp"
                 android:layout_weight="1"
                 android:fontFamily="@font/notosans_regular"
-                android:text="00:00 | 99:99"
+                android:text="40:21 | 67:98"
                 android:textColor="@android:color/white"
                 android:textSize="9sp" />
         </LinearLayout>

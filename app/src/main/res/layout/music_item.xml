@@ -1,51 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     android:background="@drawable/rounded_at_all_modern"
     android:backgroundTint="@color/semitrans_dark_light"
     android:padding="4dp"
     android:layout_marginStart="4dp"
     android:layout_marginTop="2dp"
     android:layout_marginEnd="4dp"
-    android:layout_marginBottom="2dp">
+    android:layout_marginBottom="2dp"
+    android:layout_gravity="top|center_vertical"
+    android:gravity="center">
 
     <LinearLayout
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:orientation="horizontal"
-        android:layout_weight="1">
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignParentStart="true"
+        android:layout_centerInParent="true">
 
         <TextView
             android:id="@+id/item_music_name"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="start"
+            android:gravity="start|bottom"
             android:fontFamily="@font/notosans_bold"
-            android:text="Song Name"
+            android:text="Song name will go here"
             android:textSize="16sp"
             android:textColor="@color/punchout"
             android:clickable="false"
             android:focusable="false"
             android:maxLines="1"
+            android:maxWidth="350dp"
             android:ellipsize="end"
             android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginTop="4dp"
-            android:layout_weight="5"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_gravity="start"
-        android:gravity="start"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:orientation="horizontal"
-        android:layout_weight="1">
+            android:layout_marginEnd="8dp" />
 
         <TextView
             android:id="@+id/item_music_artist"
@@ -54,55 +45,51 @@
             android:layout_gravity="start|top"
             android:gravity="start"
             android:fontFamily="@font/notosans_regular"
-            android:text="Music Artist"
-            android:textSize="9sp"
+            android:text="Music artist"
+            android:textSize="11sp"
             android:textColor="@color/punchout"
             android:clickable="false"
             android:focusable="false"
             android:maxLines="1"
+            android:maxWidth="350dp"
             android:ellipsize="end"
             android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="4dp"
-            android:layout_weight="7"/>
-
-        <TextView
-            android:id="@+id/item_music_size"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start|top"
-            android:gravity="start"
-            android:fontFamily="@font/notosans_regular"
-            android:text="4.20MB"
-            android:textSize="9sp"
-            android:textColor="@color/punchout"
-            android:clickable="false"
-            android:focusable="false"
-            android:maxLines="1"
-            android:ellipsize="end"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="4dp"
-            android:layout_weight="1"/>
+            android:layout_marginEnd="8dp" />
 
         <TextView
             android:id="@+id/item_music_length"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="end|top"
+            android:layout_gravity="start|top"
             android:gravity="center"
-            android:fontFamily="@font/notosans_regular"
+            android:fontFamily="@font/notosans_thin"
             android:text="0:69"
-            android:textSize="9sp"
+            android:textSize="10sp"
             android:textColor="@color/punchout"
             android:clickable="false"
             android:focusable="false"
             android:maxLines="1"
+            android:maxWidth="350dp"
             android:ellipsize="end"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginBottom="4dp"
-            android:layout_weight="1"/>
+            android:layout_marginBottom="4dp" />
 
     </LinearLayout>
-</LinearLayout>
+
+    <ImageButton
+        android:id="@+id/item_music_play"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_alignParentEnd="true"
+        android:layout_centerInParent="true"
+        android:layout_gravity="end"
+        android:layout_marginEnd="15dp"
+        android:adjustViewBounds="false"
+        android:alpha=".5"
+        android:background="@null"
+        android:contentDescription="@string/play"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_play"
+        app:tint="@color/punchout" />
+</RelativeLayout>

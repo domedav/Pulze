@@ -12,6 +12,7 @@ import android.widget.ScrollView;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.splashscreen.SplashScreen;
 import com.domedav.listenanywhere.databinding.ActivityMainBinding;
+import com.domedav.listenanywhere.homescreen.HomeScreenBottomNaviControlPanelManager;
 import com.domedav.listenanywhere.homescreen.HomeScreenMusicControlPanelManager;
 import com.domedav.listenanywhere.popup.PopupViewManager;
 import com.domedav.listenanywhere.popup.PopupViewWorkingIDs;
@@ -73,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
             PopupViewManager.MakeDropdown(R.string.settings_kbps_target, R.array.settings_kbps_target_dropdown, new AdapterView.OnItemSelectedListener() {
                 @Override
                 public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                    Log.e("TAG", "onItemSelected: " + position);
+                    //Log.e("TAG", "onItemSelected: " + position);
                 }
 
                 @Override
@@ -110,6 +111,12 @@ public class MainActivity extends AppCompatActivity {
             int bottom_height = m_binding.bottomLayout.getRoot().getHeight() + m_binding.musicnaviNavicollapsed.getRoot().getHeight();
 
             m_binding.homefillable.setPaddingRelative(0, top_height  - 20, 0, bottom_height - 50);
+            m_binding.homefillablePlaceboo.setPaddingRelative(0, top_height  - 20, 0, bottom_height - 50);
+        });
+
+        // Init bottom bar navi, with delay
+        m_binding.getRoot().post(() ->{
+            HomeScreenBottomNaviControlPanelManager.InitialiseBottomNaviManager(this, m_binding);
         });
     }
 
@@ -125,6 +132,7 @@ public class MainActivity extends AppCompatActivity {
         // Clean our trash
         PopupViewManager.DestroyUnneeded();
         HomeScreenMusicControlPanelManager.DestroyUnneeded();
+        HomeScreenBottomNaviControlPanelManager.DestroyUnneeded();
         // Main cleansing
         super.onDestroy();
     }
