@@ -75,10 +75,18 @@ public class HomeScreenBottomNaviControlPanelManager {
     }
 
     /**
+     * Debounce handling of the layout switching, so the anims must play thru
+     */
+    private static boolean m_switchingDebounce = false;
+
+    /**
      * Switches the view to the given index
      */
     private static void SwitchTo(int windowindex){
-        if(m_currentlyActiveIndex == windowindex){ return; }  // Dont change, if we are already on that window
+        if(m_currentlyActiveIndex == windowindex || m_switchingDebounce){ return; }  // Dont change, if we are already on that window
+
+        // Disable switching
+        m_switchingDebounce = true;
 
         final int l_chachedPreviousActiveIndex = m_currentlyActiveIndex;
 
@@ -122,6 +130,12 @@ public class HomeScreenBottomNaviControlPanelManager {
                 m_homeScreenManagers[windowindex].ReparentViews(m_binding.homefillable);
                 // Set placeboo hidden
                 m_binding.homefillablePlaceboo.setVisibility(View.GONE);
+
+                // Set teh scroll state back to 0
+                m_binding.homecontentholder.setScrollY(0);
+
+                // Enable switching
+                m_switchingDebounce = false;
             }
         }, m_binding.homefillablePlaceboo);
 
