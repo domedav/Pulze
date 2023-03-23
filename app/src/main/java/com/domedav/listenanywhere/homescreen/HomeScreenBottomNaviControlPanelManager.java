@@ -4,15 +4,16 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.app.Activity;
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import androidx.annotation.NonNull;
 import androidx.core.math.MathUtils;
 import com.domedav.animhelpers.QuickValueAnimator;
 import com.domedav.listenanywhere.R;
 import com.domedav.listenanywhere.databinding.ActivityMainBinding;
+import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
 public class HomeScreenBottomNaviControlPanelManager {
@@ -27,6 +28,7 @@ public class HomeScreenBottomNaviControlPanelManager {
     private static final float UNSELECTED_ALPHA_VALUE = .5f;
     private static final float SELECTED_ALPHA_VALUE = 1f;
     private static float m_screenWidth; // Needed for ContentManager anims
+    private static float m_screenHeight;
 
     /**
      * Initialise this class, prepare it for use
@@ -49,6 +51,7 @@ public class HomeScreenBottomNaviControlPanelManager {
         m_inflater = (LayoutInflater)a.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
         m_screenWidth = m_binding.getRoot().getWidth();
+        m_screenHeight = m_binding.getRoot().getHeight();
 
         // Fill array up with appropriate values
         m_homeScreenManagers = new HomeScreenContentManager[]{
@@ -94,6 +97,9 @@ public class HomeScreenBottomNaviControlPanelManager {
         QuickValueAnimator.AnimateFloat(SELECTED_ALPHA_VALUE, UNSELECTED_ALPHA_VALUE, QuickValueAnimator.ANIMATION_SHORT_MS, animation -> m_mainButtons[l_chachedPreviousActiveIndex].setAlpha((float)animation.getAnimatedValue()));
         QuickValueAnimator.AnimateFloat(UNSELECTED_ALPHA_VALUE, SELECTED_ALPHA_VALUE, QuickValueAnimator.ANIMATION_SHORT_MS, animation -> m_mainButtons[windowindex].setAlpha((float)animation.getAnimatedValue()));
 
+        // Disable interactions
+        m_binding.homecontentholder.setEnabled(false);
+
         // Set placeboo visible
         m_binding.homefillablePlaceboo.setVisibility(View.VISIBLE);
 
@@ -136,6 +142,9 @@ public class HomeScreenBottomNaviControlPanelManager {
 
                 // Enable switching
                 m_switchingDebounce = false;
+
+                // Re-Enable interactions
+                m_binding.homecontentholder.setEnabled(true);
             }
         }, m_binding.homefillablePlaceboo);
 
@@ -143,16 +152,23 @@ public class HomeScreenBottomNaviControlPanelManager {
         m_currentlyActiveIndex = windowindex;
     }
 
-    //TODO: make this filled with pointers
+    //TODO: make this filled with pointers (optimise)
     /**
      * Gets the main buttons as an array, for simple handling
      */
+    @NonNull
+    @Contract(value = " -> new", pure = true)
     private static ImageButton[] GetMainBtnsAsArray() { return new ImageButton[] { m_libraryMAINBTN, m_searchMAINBTN, m_downloadsMAINBTN }; }
 
     /**
      * Get the width of the screen (binding root)
      */
     public static float GetScreenWidth(){ return m_screenWidth; }
+
+    /**
+     * Get the height of the screen (binding root)
+     */
+    public static float GetScreenHeight(){ return m_screenHeight; }
 
     /**
      * Must be called when this class is no longer used, so we dont cause a mem leak

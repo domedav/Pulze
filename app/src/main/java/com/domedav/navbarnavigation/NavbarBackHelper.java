@@ -31,14 +31,18 @@ public class NavbarBackHelper {
      * @return If anything could be undone
      */
     public static boolean NavigateBack(){
+        int l_actions_size = m_actions.size();
+
         // If theres nothing to undo
-        if(m_actions.size() <= 0){
+        if(l_actions_size <= 0){
             // Return false to caller
             return false;
         }
+
         // Undo latest action
-        m_actions.get(m_actions.size() - 1).Back();
-        m_actions.remove(m_actions.size() - 1);
+        l_actions_size--;   // sub 1 to get last element
+        m_actions.get(l_actions_size).Back();
+        m_actions.remove(l_actions_size);
         return true;
     }
 }

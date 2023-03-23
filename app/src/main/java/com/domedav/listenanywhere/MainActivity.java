@@ -1,5 +1,6 @@
 package com.domedav.listenanywhere;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
@@ -25,6 +26,7 @@ import me.everything.android.ui.overscroll.adapters.ScrollViewOverScrollDecorAda
 public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding m_binding;
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         // Set basic activity params
@@ -103,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
         HomeScreenMusicControlPanelManager.SetProgress(120);
 
         // Set up overscroll for music scroller
-        new VerticalOverScrollBounceEffectDecorator(new ScrollViewOverScrollDecorAdapter(findViewById(R.id.homecontentholder)), 25f, 25f, 1f);
+        new VerticalOverScrollBounceEffectDecorator(new ScrollViewOverScrollDecorAdapter(findViewById(R.id.homecontentholder)), 5f, 5f, 1f);
 
         m_binding.getRoot().post(() -> {
             // Offset scrollable height, to make it look like, its scrolling into the top navilayout, and the bottom musicnave can slide on top

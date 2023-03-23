@@ -1,9 +1,8 @@
 package com.domedav.listenanywhere.popup;
 
 import android.view.View;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import java.io.Closeable;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -31,6 +30,7 @@ public class PopupViewStoringHelper {
      * @param uniqueIdentifier The unique ID which the new pool should have<br>Hash of a string is recommended<br>DONT LOSE THE KEY!
      * @return The new pool<br>Dont forget to return when you no longer need it, to prevent memory leaks
      */
+    @NonNull
     public static PopupViewStoringHelper RequestNewPool(int uniqueIdentifier){
         // Create new pool
         PopupViewStoringHelper pool = new PopupViewStoringHelper(uniqueIdentifier);

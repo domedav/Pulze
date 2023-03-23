@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.core.math.MathUtils;
 import com.domedav.animhelpers.QuickValueAnimator;
@@ -100,7 +101,7 @@ public class HomeScreenMusicControlPanelManager {
     /**
      * Handles the Musicnavigator layout events
      */
-    public static void LayoutMove(MotionEvent event){
+    public static void LayoutMove(@NonNull MotionEvent event){
         switch (event.getAction()){
             case MotionEvent.ACTION_DOWN:
                 m_interactionLocked = false;
