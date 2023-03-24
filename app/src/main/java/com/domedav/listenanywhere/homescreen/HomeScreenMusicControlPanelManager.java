@@ -168,6 +168,7 @@ public class HomeScreenMusicControlPanelManager {
         QuickValueAnimator.AnimateFloat(m_musicnaviExpandedLayout.getAlpha(), 0f, QuickValueAnimator.ANIMATION_SHORT_MS, animation -> {
             m_musicnaviExpandedLayout.setAlpha(MathUtils.clamp((float)animation.getAnimatedValue(), 0f, 1f));
         });
+        SetButtonActiveState(false);
     }
 
     /**
@@ -183,6 +184,17 @@ public class HomeScreenMusicControlPanelManager {
         QuickValueAnimator.AnimateFloat(m_musicnaviExpandedLayout.getAlpha(), 1f, QuickValueAnimator.ANIMATION_SHORT_MS, animation -> {
             m_musicnaviExpandedLayout.setAlpha(MathUtils.clamp((float)animation.getAnimatedValue(), 0f, 1f));
         });
+        SetButtonActiveState(true);
+    }
+
+    /**
+     * Sets the buttons availability state, based on the given state (doesnt allow usage of expanded buttons in collapsed view)
+     */
+    private static void SetButtonActiveState(boolean isexpanded){
+        m_previousButton.setEnabled(isexpanded);
+        m_skipButton.setEnabled(isexpanded);
+        m_playpauseButton_big.setEnabled(isexpanded);
+        m_playpauseButton_small.setEnabled(!isexpanded);
     }
 
     /**

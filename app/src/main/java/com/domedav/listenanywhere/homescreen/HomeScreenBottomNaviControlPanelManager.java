@@ -62,12 +62,12 @@ public class HomeScreenBottomNaviControlPanelManager {
         
         // Populate
         for (HomeScreenContentManager m_homeScreenManager : m_homeScreenManagers) {
-            for (int i = 0; i < 20; i++) {
+            /*for (int i = 0; i < 20; i++) {    // Enable for testing
                 // This is a dumbass way to get the root ViewGroup, but android doesnt provide a way to get the inflated layout as ViewGroup
                 ViewGroup vg = (ViewGroup)m_inflater.inflate(R.layout.music_item, null).findViewById(R.id.item_music_play).getParent();
                 // Store the viewgroup
                 m_homeScreenManager.StoreView(vg);
-            }
+            }*/
             m_homeScreenManager.SetVisibilityState(ViewGroup.GONE);
             m_homeScreenManager.ReparentViews(binding.unusedUielementContainer);
         }
