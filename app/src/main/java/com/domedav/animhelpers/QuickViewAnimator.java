@@ -3,6 +3,8 @@ package com.domedav.animhelpers;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ObjectAnimator;
 import android.view.ViewGroup;
+
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 public class QuickViewAnimator {
@@ -14,7 +16,7 @@ public class QuickViewAnimator {
      * @param targetPos The target position of the layout
      * @param duration_ms The time it should take to animate it
      */
-    public static void AnimateTranslationX(ViewGroup layout, float startingPos, float targetPos, long duration_ms) { AnimateTranslationX(layout, startingPos, targetPos, duration_ms, null); }
+    public static void AnimateTranslationX(@NonNull ViewGroup layout, float startingPos, float targetPos, long duration_ms) { AnimateTranslationX(layout, startingPos, targetPos, duration_ms, null); }
 
     /**
      * Animates a layouts translationY
@@ -24,7 +26,7 @@ public class QuickViewAnimator {
      * @param duration_ms The time it should take to animate it
      * @param callback Useful if you want to do event based things with the animation
      */
-    public static void AnimateTranslationX(ViewGroup layout, float startingPos, float targetPos, long duration_ms, @Nullable AnimatorListenerAdapter callback){
+    public static void AnimateTranslationX(@NonNull ViewGroup layout, float startingPos, float targetPos, long duration_ms, @Nullable AnimatorListenerAdapter callback){
         // Set the starting pos of the view
         layout.setTranslationX(startingPos);
         // Create the ObjectAnimator that animates the translationY property
@@ -45,7 +47,7 @@ public class QuickViewAnimator {
      * @param targetPos The target position of the layout
      * @param duration_ms The time it should take to animate it
      */
-    public static void AnimateTranslationY(ViewGroup layout, float startingPos, float targetPos, long duration_ms) { AnimateTranslationY(layout, startingPos, targetPos, duration_ms, null); }
+    public static void AnimateTranslationY(@NonNull ViewGroup layout, float startingPos, float targetPos, long duration_ms) { AnimateTranslationY(layout, startingPos, targetPos, duration_ms, null); }
 
     /**
      * Animates a layouts translationY
@@ -55,7 +57,7 @@ public class QuickViewAnimator {
      * @param duration_ms The time it should take to animate it
      * @param callback Useful if you want to do event based things with the animation
      */
-    public static void AnimateTranslationY(ViewGroup layout, float startingPos, float targetPos, long duration_ms, @Nullable AnimatorListenerAdapter callback){
+    public static void AnimateTranslationY(@NonNull ViewGroup layout, float startingPos, float targetPos, long duration_ms, @Nullable AnimatorListenerAdapter callback){
         // Set the starting pos of the view
         layout.setTranslationY(startingPos);
         // Create the ObjectAnimator that animates the translationY property
@@ -76,7 +78,7 @@ public class QuickViewAnimator {
      * @param targetScale The target scale of the layout
      * @param duration_ms The time it should take to animate it
      */
-    public static void AnimateScaleAll(ViewGroup layout, float startingScale, float targetScale, long duration_ms) { AnimateScaleAll(layout, startingScale, targetScale, duration_ms, null); }
+    public static void AnimateScaleAll(@NonNull ViewGroup layout, float startingScale, float targetScale, long duration_ms) { AnimateScaleAll(layout, startingScale, targetScale, duration_ms, null); }
 
     /**
      * Animates a layouts Scaling on all axis
@@ -86,7 +88,7 @@ public class QuickViewAnimator {
      * @param duration_ms The time it should take to animate it
      * @param callback Useful if you want to do event based things with the animation
      */
-    public static void AnimateScaleAll(ViewGroup layout, float startingScale, float targetScale, long duration_ms, @Nullable AnimatorListenerAdapter callback){
+    public static void AnimateScaleAll(@NonNull ViewGroup layout, float startingScale, float targetScale, long duration_ms, @Nullable AnimatorListenerAdapter callback){
         // Set the starting scale of the view
         layout.setScaleX(startingScale);
         layout.setScaleY(startingScale);
@@ -111,7 +113,7 @@ public class QuickViewAnimator {
      * @param targetScale The target scale of the layout
      * @param duration_ms The time it should take to animate it
      */
-    public static void AnimateScaleX(ViewGroup layout, float startingScale, float targetScale, long duration_ms){AnimateScaleX(layout, startingScale, targetScale, duration_ms, null);}
+    public static void AnimateScaleX(@NonNull ViewGroup layout, float startingScale, float targetScale, long duration_ms){AnimateScaleX(layout, startingScale, targetScale, duration_ms, null);}
 
     /**
      * Animates a layouts Scaling on all axis
@@ -121,7 +123,7 @@ public class QuickViewAnimator {
      * @param duration_ms The time it should take to animate it
      * @param callback Useful if you want to do event based things with the animation
      */
-    public static void AnimateScaleX(ViewGroup layout, float startingScale, float targetScale, long duration_ms, @Nullable AnimatorListenerAdapter callback){
+    public static void AnimateScaleX(@NonNull ViewGroup layout, float startingScale, float targetScale, long duration_ms, @Nullable AnimatorListenerAdapter callback){
         // Set the starting scale of the view
         layout.setScaleX(startingScale);
         // Create the ObjectAnimator that animates the scales property
@@ -142,7 +144,7 @@ public class QuickViewAnimator {
      * @param targetScale The target scale of the layout
      * @param duration_ms The time it should take to animate it
      */
-    public static void AnimateScaleY(ViewGroup layout, float startingScale, float targetScale, long duration_ms){AnimateScaleY(layout, startingScale, targetScale, duration_ms, null);}
+    public static void AnimateScaleY(@NonNull ViewGroup layout, float startingScale, float targetScale, long duration_ms){AnimateScaleY(layout, startingScale, targetScale, duration_ms, null);}
 
     /**
      * Animates a layouts Scaling on all axis
@@ -152,7 +154,7 @@ public class QuickViewAnimator {
      * @param duration_ms The time it should take to animate it
      * @param callback Useful if you want to do event based things with the animation
      */
-    public static void AnimateScaleY(ViewGroup layout, float startingScale, float targetScale, long duration_ms, @Nullable AnimatorListenerAdapter callback){
+    public static void AnimateScaleY(@NonNull ViewGroup layout, float startingScale, float targetScale, long duration_ms, @Nullable AnimatorListenerAdapter callback){
         // Set the starting scale of the view
         layout.setScaleX(startingScale);
         // Create the ObjectAnimator that animates the scales property

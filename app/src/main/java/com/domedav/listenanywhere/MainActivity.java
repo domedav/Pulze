@@ -1,25 +1,22 @@
 package com.domedav.listenanywhere;
 
 import android.annotation.SuppressLint;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.AdapterView;
-import android.widget.ScrollView;
-
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.splashscreen.SplashScreen;
+import com.domedav.data.DataStorage;
 import com.domedav.listenanywhere.databinding.ActivityMainBinding;
 import com.domedav.listenanywhere.homescreen.HomeScreenBottomNaviControlPanelManager;
 import com.domedav.listenanywhere.homescreen.HomeScreenMusicControlPanelManager;
 import com.domedav.listenanywhere.popup.PopupViewManager;
 import com.domedav.listenanywhere.popup.PopupViewWorkingIDs;
 import com.domedav.navbarnavigation.NavbarBackHelper;
-
-import me.everything.android.ui.overscroll.OverScrollDecoratorHelper;
 import me.everything.android.ui.overscroll.VerticalOverScrollBounceEffectDecorator;
 import me.everything.android.ui.overscroll.adapters.ScrollViewOverScrollDecorAdapter;
 
@@ -44,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         // Clear NavbarBackHelper registered actions (if theres any)
         NavbarBackHelper.Reset();
+        // Init datastorage
+        DataStorage.Init(this);
         // Enable vector res extension
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
         // Customize workspace, to match our theming
@@ -88,6 +87,12 @@ public class MainActivity extends AppCompatActivity {
 
             }, true);
 
+            // Display app version
+            try {
+                PopupViewManager.MakeMiniHeader(getString(R.string.app_version, getPackageManager().getPackageInfo(getPackageName(),0).versionName));
+            } catch (PackageManager.NameNotFoundException ignored) {}
+
+            // Logic
             PopupViewManager.SetInteractableViewState(2, false);    // Set interactable default state
         }));
 
@@ -117,9 +122,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         // Init bottom bar navi, with delay
-        m_binding.getRoot().post(() ->{
-            HomeScreenBottomNaviControlPanelManager.InitialiseBottomNaviManager(this, m_binding);
-        });
+        m_binding.getRoot().post(() -> HomeScreenBottomNaviControlPanelManager.InitialiseBottomNaviManager(this, m_binding));
     }
 
     @Override

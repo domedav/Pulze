@@ -4,6 +4,7 @@ import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
 import android.graphics.Color;
 import androidx.annotation.IntRange;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import java.util.concurrent.atomic.AtomicInteger;
@@ -20,7 +21,7 @@ public class QuickValueAnimator {
      * @param duration_ms The time it should take to animate it
      * @param callback Calls back every time the animation updates
      */
-    public static void AnimateInt(int startValue, int targetValue, long duration_ms, ValueAnimator.AnimatorUpdateListener callback){ AnimateInt(startValue, targetValue, duration_ms, callback, null); }
+    public static void AnimateInt(int startValue, int targetValue, long duration_ms, @NonNull ValueAnimator.AnimatorUpdateListener callback){ AnimateInt(startValue, targetValue, duration_ms, callback, null); }
 
     /**
      * Animates between 2 int values
@@ -30,7 +31,7 @@ public class QuickValueAnimator {
      * @param callback Calls back every time the animation updates
      * @param callback2 Useful if you want to know when the animation has ended
      */
-    public static void AnimateInt(int startValue, int targetValue, long duration_ms, ValueAnimator.AnimatorUpdateListener callback, @Nullable AnimatorListenerAdapter callback2){
+    public static void AnimateInt(int startValue, int targetValue, long duration_ms, @NonNull ValueAnimator.AnimatorUpdateListener callback, @Nullable AnimatorListenerAdapter callback2){
         // Create the ValueAnimator that animates
         ValueAnimator anim = ValueAnimator.ofInt(startValue, targetValue);
         // Set the animation duration
@@ -51,7 +52,7 @@ public class QuickValueAnimator {
      * @param duration_ms The time it should take to animate it
      * @param callback Calls back every time the animation updates
      */
-    public static void AnimateFloat(float startValue, float targetValue, long duration_ms, ValueAnimator.AnimatorUpdateListener callback){ AnimateFloat(startValue, targetValue, duration_ms, callback, null); }
+    public static void AnimateFloat(float startValue, float targetValue, long duration_ms, @NonNull ValueAnimator.AnimatorUpdateListener callback){ AnimateFloat(startValue, targetValue, duration_ms, callback, null); }
 
     /**
      * Animates between 2 float values
@@ -61,7 +62,7 @@ public class QuickValueAnimator {
      * @param callback Calls back every time the animation updates
      * @param callback2 Useful if you want to know when the animation has ended
      */
-    public static void AnimateFloat(float startValue, float targetValue, long duration_ms, ValueAnimator.AnimatorUpdateListener callback, @Nullable AnimatorListenerAdapter callback2){
+    public static void AnimateFloat(float startValue, float targetValue, long duration_ms, @NonNull ValueAnimator.AnimatorUpdateListener callback, @Nullable AnimatorListenerAdapter callback2){
         // Create the ValueAnimator that animates
         ValueAnimator anim = ValueAnimator.ofFloat(startValue, targetValue);
         // Set the animation duration
@@ -90,7 +91,7 @@ public class QuickValueAnimator {
      * @param duration_ms The time it should take to animate it
      * @param callback Calls back with the value you should apply to something
      */
-    public static void AnimateColorAlpha(int referenceColorInt, @IntRange(from = 0, to = 255) int startingAlpha, @IntRange(from = 0, to = 255) int targetAlpha, long duration_ms, ColorHandlingCallback callback){ AnimateColorAlpha(referenceColorInt, startingAlpha, targetAlpha, duration_ms, callback, null); }
+    public static void AnimateColorAlpha(int referenceColorInt, @IntRange(from = 0, to = 255) int startingAlpha, @IntRange(from = 0, to = 255) int targetAlpha, long duration_ms, @NonNull ColorHandlingCallback callback){ AnimateColorAlpha(referenceColorInt, startingAlpha, targetAlpha, duration_ms, callback, null); }
 
     /**
      * Animates the alpha of a color (useful for fadeouts)
@@ -101,7 +102,7 @@ public class QuickValueAnimator {
      * @param callback Calls back with the value you should apply to something
      * @param callback2 Useful if you want to know when the animation has ended
      */
-    public static void AnimateColorAlpha(int referenceColorInt, @IntRange(from = 0, to = 255) int startingAlpha, @IntRange(from = 0, to = 255) int targetAlpha, long duration_ms, ColorHandlingCallback callback, @Nullable AnimatorListenerAdapter callback2){
+    public static void AnimateColorAlpha(int referenceColorInt, @IntRange(from = 0, to = 255) int startingAlpha, @IntRange(from = 0, to = 255) int targetAlpha, long duration_ms, @NonNull ColorHandlingCallback callback, @Nullable AnimatorListenerAdapter callback2){
         // Get color RGB from provided color ID
         int red = Color.red(referenceColorInt);
         int green = Color.green(referenceColorInt);
@@ -117,7 +118,7 @@ public class QuickValueAnimator {
      * @param duration_ms The time it should take to animate it
      * @param callback Calls back with the value you should apply to something
      */
-    public static void AnimateColorChange(int startingColorInt, int targetColorInt, long duration_ms, ColorHandlingCallback callback){ AnimateColorChange(startingColorInt, targetColorInt, duration_ms, callback, null); }
+    public static void AnimateColorChange(int startingColorInt, int targetColorInt, long duration_ms, @NonNull ColorHandlingCallback callback){ AnimateColorChange(startingColorInt, targetColorInt, duration_ms, callback, null); }
 
     /**
      * Animates color switching between 2 colors
@@ -127,7 +128,7 @@ public class QuickValueAnimator {
      * @param callback Calls back with the value you should apply to something
      * @param callback2 Useful if you want to know when the animation has ended
      */
-    public static void AnimateColorChange(int startingColorInt, int targetColorInt, long duration_ms, ColorHandlingCallback callback, @Nullable AnimatorListenerAdapter callback2){
+    public static void AnimateColorChange(int startingColorInt, int targetColorInt, long duration_ms, @NonNull ColorHandlingCallback callback, @Nullable AnimatorListenerAdapter callback2){
         //RGB value animation vars
         AtomicInteger animedRed = new AtomicInteger();
         AtomicInteger animedGreen = new AtomicInteger();

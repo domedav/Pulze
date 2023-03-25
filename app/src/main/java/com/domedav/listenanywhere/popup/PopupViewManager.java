@@ -20,6 +20,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.FloatRange;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatCheckBox;
 import androidx.appcompat.widget.AppCompatSpinner;
 import androidx.appcompat.widget.SwitchCompat;
@@ -190,7 +191,7 @@ public class PopupViewManager {
     }
 
     /**
-     * Simple way of creating a popup<br><h5>Old, complex mode compressed into 1 method, old methods have been gotten rid of
+     * Simple way of creating a popup
      * @param workingID The id to work with (get from <b>PopupViewWorkingIDs</b> class)
      * @param strheader_res_id The res ID of the header (R.string.<i><b>resID</b></i>)
      * @return If you should create the views or not
@@ -264,6 +265,7 @@ public class PopupViewManager {
 
     /**
      * Creates a checkbox
+     * @param strheader_res_id The res ID of the header (R.string.<i><b>resID</b></i>)
      */
     public static void MakeCheckbox(int strheader_res_id, @NotNull CompoundButton.OnCheckedChangeListener callback, boolean startingState){
         // Instantiate a new toggle layout
@@ -281,11 +283,34 @@ public class PopupViewManager {
         Objects.requireNonNull(PopupViewStoringHelper.GetPoolByID(m_workingID)).StoreView(layout);
     }
 
-    public static void MakeMiniHeader(int strheader_res_id){
+    /**
+     * Makes a mini header
+     * @param nonres_text If strheader_res_id is set to -1, you can set the text to anything
+     */
+    public static void MakeMiniHeader(String nonres_text){MakeMiniHeader(-1, nonres_text);}
+
+    /**
+     * Makes a mini header
+     * @param strheader_res_id The res ID of the text (R.string.<i><b>resID</b></i>)
+     */
+    public static void MakeMiniHeader(int strheader_res_id){MakeMiniHeader(strheader_res_id, null);}
+
+    /**
+     * Makes a mini header
+     * @param strheader_res_id The res ID of the text (R.string.<i><b>resID</b></i>)
+     * @param nonres_text If strheader_res_id is set to -1, you can set the text to anything
+     */
+    public static void MakeMiniHeader(int strheader_res_id, @Nullable String nonres_text){
         // Instantiate a new toggle layout
         ConstraintLayout layout = (ConstraintLayout)m_inflater.inflate(R.layout.settings_miniheader, null);
         // Set header txt
-        ((TextView)layout.findViewById(R.id.setting_header)).setText(strheader_res_id);
+        var header = (TextView)layout.findViewById(R.id.setting_header);
+        if(strheader_res_id == -1){
+            header.setText(nonres_text);
+        }
+        else{
+            header.setText(strheader_res_id);
+        }
         // Set layout as child object
         m_popupWindow.addView(layout);
         // Store it in helper
@@ -308,7 +333,7 @@ public class PopupViewManager {
     }
 
     /**
-     * EXIT VIA NAVBAR BACK!!!<br>
+     * EXIT VIA NAVBAR.BACK!!!<br>
      * Handles the exiting of the popup window
      */
     private static void ExitPopupWindow(){

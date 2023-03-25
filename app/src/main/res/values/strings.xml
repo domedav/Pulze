@@ -15,4 +15,7 @@
 
     <string name="music_timeremaining_placeholder">%1$s | %2$s</string>
     <string name="music_artist_placeholder">By: %1$s</string>
+
+    <string name="savefile_name">.appdata</string>
+    <string name="app_version">App Version: %1$s</string>
 </resources>
